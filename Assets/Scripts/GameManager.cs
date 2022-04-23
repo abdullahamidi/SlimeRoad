@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+using DG.Tweening;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
@@ -26,6 +26,12 @@ public class GameManager : MonoBehaviour
         CollisionDetection.OnRingCollide += ShowRestartMenu;
     }
 
+    private void OnDisable()
+    {
+        CollisionDetection.OnDiamondCollide -= CollectDiamond;
+        CollisionDetection.OnRingCollide -= ShowRestartMenu;
+    }
+
     private void CollectDiamond(Transform ring2Destroy)
     {
         collectedDiamond++;
@@ -43,6 +49,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        DOTween.KillAll();
         restartPanel.gameObject.SetActive(false);
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);

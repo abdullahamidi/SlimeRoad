@@ -12,6 +12,7 @@ public class CollisionDetection : MonoBehaviour
     {
         if (collider.transform.CompareTag("Ring"))
         {
+            Debug.Log("Çarptým");
             if (OnRingCollide != null)
             {
                 OnRingCollide();

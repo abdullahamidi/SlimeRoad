@@ -12,21 +12,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        //leftPlatformBound = -platform.bounds.size.z / 2 + transform.localScale.z / 2;
-        //rightPlatformBound = platform.bounds.size.z / 2 - transform.localScale.z / 2;
         jumpFactorX = 0f;
         StartCoroutine(JumpPlayer());
-        //enabled = false;
     }
-    //void Update()
-    //{
-    //    var direction = joystick.Horizontal;
-    //    var horizontal = direction * horSpeed * Time.deltaTime * Vector3.forward;
-    //    if (transform.position.z + horizontal.z < rightPlatformBound && transform.position.z + horizontal.z > leftPlatformBound)
-    //    {
-    //        transform.position += horizontal;
-    //    }
-    //}
 
     IEnumerator JumpPlayer()
     {

@@ -30,7 +30,7 @@ public class RingSpawner : MonoBehaviour
     private Vector3 RandomPosition()
     {
         Vector3 position;
-        position = new Vector3(rings.Last().position.x - playerMovement.jumpFactorX,
+        position = new Vector3(rings.Last().position.x - playerMovement.jumpFactorX * Random.Range(1, 3),
             playerMovement.jumpPower,
             Random.Range(-objectBoundaries.PlatformBoundarySize.z / 2 + objectBoundaries.RingBoundarySize.z / 2, objectBoundaries.PlatformBoundarySize.z / 2 - objectBoundaries.RingBoundarySize.z / 2)
             );

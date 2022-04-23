@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class InputManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
@@ -11,6 +12,8 @@ public class InputManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     PlayerHorizontalMovement playerHorizontalMovement;
     [SerializeField]
     DynamicJoystick joystick;
+    [SerializeField]
+    Text tapToPlayText;
     bool isGameStarted = false;
     bool isTapped = false;
 
@@ -36,6 +39,7 @@ public class InputManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
         {
             isGameStarted = true;
             joystick.enabled = true;
+            tapToPlayText.enabled = false;
         }
     }
 
